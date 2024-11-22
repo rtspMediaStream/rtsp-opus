@@ -1,9 +1,32 @@
-ffmpeg -i rtsp://127.0.0.1:554 -f alsa default
-# insert 
-    mkdir build
+# Manual
 
-# audio example.
-# check your speaker device.
+- Install
+```bash
+sudo apt update
+sudo apt install libasound2-dev  // ALSA 
+sudo apt install libopus-dev     // OPUS codec
+sudo apt install ffmpeg		     // ffmpeg 
+```
+## ⚠️ Please download CMake version 3.29.2(supported by Kitware)
+
+### for Build 
+    mkdir build
+    cmake ..
+    make
+
+###  Check your speaker device.
+```bash
     aplay -l
-# Check the sound by entering the speaker number in ffmpeg.
-    ffmpeg -i rtsp://localhost:554 -f alsa default
+```
+
+# Start
+
+### Start RTSP-server (Send)
+```bash
+./rtsp
+```
+
+### Check the sound by entering the speaker number in ffmpeg (Receive)
+```bash
+ffmpeg -i rtsp://localhost:554 -f alsa default
+```
